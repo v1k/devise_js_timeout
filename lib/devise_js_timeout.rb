@@ -11,5 +11,6 @@ module Devise
       else
         render json: { status: :fail, message: "User is active." }
       end
+    end
   end
 end
