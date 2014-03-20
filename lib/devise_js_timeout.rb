@@ -1,8 +1,8 @@
 require "devise_js_timeout/version"
 # require "devise/app/controllers/sessionscontroller"
 
-unless defined?(Devise::SessionsController)
-  require "devise/app/controllers/users/sessions_controller"
+unless defined?(Devise)
+  require "devise"
 end
 
 Devise::SessionsController.class_eval do
