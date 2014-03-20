@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  match '/is_expired' => 'session#is_expired'
+  devise_for {sessions: "sessions"}
 end
