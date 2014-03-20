@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  devise_for {sessions: "sessions"}
+  devise_for controllers: {sessions: "sessions"}
 end
