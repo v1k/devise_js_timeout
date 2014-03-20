@@ -1,10 +1,9 @@
 require "devise_js_timeout/version"
 # require "devise/app/controllers/sessionscontroller"
 
-unless defined?(Devise)
-  require "devise"
-end
-namespace :devise do
+require "devise"
+
+module Devise
   SessionsController.class_eval do
     def is_expired
       unless current_user.timedout?(current_user.last_request_at)
