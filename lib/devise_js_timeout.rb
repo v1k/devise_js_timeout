@@ -1,4 +1,5 @@
 require "devise_js_timeout/engine"
+
 require "devise"
 
 Devise::SessionsController.class_eval do
