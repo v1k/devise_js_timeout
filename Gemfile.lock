@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    devise_js_timeout (0.1.13)
+    devise_js_timeout (0.1.15)
 
 GEM
   remote: https://rubygems.org/

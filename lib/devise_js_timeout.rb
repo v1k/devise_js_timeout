@@ -1,7 +1,5 @@
 require "devise_js_timeout/engine"
 
-require "devise/app/controllers/devise_controller"
-
 Devise::DeviseController.class_eval do
   def is_expired
     unless current_user.timedout?(current_user.last_request_at)
