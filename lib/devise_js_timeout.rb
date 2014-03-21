@@ -1,6 +1,6 @@
 require "devise_js_timeout/engine"
 
-require "devise"
+require "devise/app/controllers/devise_controller"
 
 Devise::DeviseController.class_eval do
   def is_expired
