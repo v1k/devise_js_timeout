@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, :path => '', :path_names => {:is_expired => 'is_expired'}
+  devise_for :users do
+    get "/is_expired" => "devise/sessions#is_expired"
+  end
 end
