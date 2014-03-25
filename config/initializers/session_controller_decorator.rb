@@ -3,7 +3,7 @@ Devise::SessionsController.class_eval do
   logger.debug "Code initialized"
   
   def is_expired
-    logger.debug "Signed_in" + signed_in?.to_sb
+    logger.debug "Signed_in" + signed_in?.to_s
     unless signed_in?
       render json: { status: :ok, message: "User session expired." }
     else
