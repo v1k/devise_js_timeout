@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  get "/is_expired", :to => "devise/sessions#is_expired"
+  devise_scope :users do
+   get "/is_expired", :to => "devise/sessions#is_expired", :as "session_is_expired_request"
+ end
 end
