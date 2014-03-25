@@ -4,7 +4,7 @@ Devise::SessionsController.class_eval do
   
   def is_expired
     logger.debug "Signed_in" + signed_in?.to_s
-    unless signed_in?
+    if !signed_in?
       render json: { status: :ok, message: "User session expired." }
     else
       render json: { status: :fail, message: "User is active." }
