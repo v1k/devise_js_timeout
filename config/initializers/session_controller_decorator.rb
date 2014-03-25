@@ -3,7 +3,8 @@ Devise::SessionsController.class_eval do
   logger.debug "Code initialized"
   
   def is_expired
-    unless current_user.timedout?(current_user.last_request_at)
+    logger.debug :last_request_at
+    unless current_user.timedout?(:last_request_at)
       render json: { status: :ok, message: "User session expired." }
     else
       render json: { status: :fail, message: "User is active." }
