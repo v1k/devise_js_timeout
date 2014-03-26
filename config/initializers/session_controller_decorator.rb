@@ -3,6 +3,6 @@ Devise::SessionsController.class_eval do
   logger.debug "Code initialized"
   
   def is_expired
-    render json: { status: signed_in?}
+    render json: { status: :ok, expired: !signed_in?}
   end
 end
