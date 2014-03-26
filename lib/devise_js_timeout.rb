@@ -1,1 +1,1 @@
-require "devise_js_timeout/engine"
+require 'devise_js_timeout/engine'
