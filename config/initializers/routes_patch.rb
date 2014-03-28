@@ -17,5 +17,6 @@ class Devise::Mapping
     logger.debug @path
     logger.debug options[:path_names]
     logger.debug @controllers
+    logger.debug @used_routes
   end
 end
