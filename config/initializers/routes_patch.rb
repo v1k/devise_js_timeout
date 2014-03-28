@@ -16,5 +16,6 @@ class Devise::Mapping
     logger.debug @scoped_path
     logger.debug @path
     logger.debug options[:path_names]
+    logger.debug @controllers
   end
 end
