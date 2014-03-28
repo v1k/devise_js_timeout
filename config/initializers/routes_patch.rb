@@ -1,10 +1,9 @@
-ActionDispatch::Routing::RouteSet.class_eval do 
+class ActionDispatch::Routing::RouteSet
+  alias_method :old_devise_session, :devise_session
   def devise_session(mapping, controllers)
+    old_devise_session(mapping, controllers)
     resource :session, omly: [], controller: controllers[:sessions], path: "" do
-      get   :new,          path: mapping.path_names[:sign_in], as: "new"
-      post  :create,       path: mapping.path_names[:sign_in]
-      match :destroy,      path: mapping.path_names[:sign_out], as: "destroy", via: mapping.sign_out_via
-      get   :is_expired,   path: '/is_expired'
+      get 'is_expired', :to => 'devise/sessions#is_expired'
     end
   end
 end
