@@ -9,6 +9,9 @@ end
 
 class Devise::Mapping
   def fullpath
+    logger = Logger.new(STDOUT)
+    logger.debug @path
+    logger.debug @path_prefix
     if(@path == 'sessions/is_expired')
       "/#{@path}".squeeze("/")
     else
