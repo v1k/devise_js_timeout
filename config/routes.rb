@@ -1,5 +1,3 @@
-# Rails.application.routes.draw do
-#   as :user do
-#    get 'is_expired', :to => 'devise/sessions#is_expired'
-#   end
-# end
+Rails.application.routes.draw do
+  get 'session/is_expired', :to => 'devise/sessions#is_expired'
+end
