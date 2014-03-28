@@ -1,14 +1,17 @@
 class ActionDispatch::Routing::Mapper
-  @@session_controller
-
   alias_method :old_devise_session, :devise_session
 
   def devise_session(mapping, controllers)
     old_devise_session(mapping, controllers)
-    @@session_controller = controllers[:sessions]
+    get 'session/is_expired', to: controllers[:sessions] << '#is_expired'
   end
+end
 
-  def get_session_controller
-    @@session_controller
+class Devise::Mapping
+  def fullpath
+    if(@path == 'sessions/is_expired')
+      "/#{@path}".squeeze("/")
+    else
+      "/#{@path_prefix}/#{@path}".squeeze("/")
   end
 end
