@@ -3,6 +3,6 @@ class ActionDispatch::Routing::Mapper
 
   def devise_session(mapping, controllers)
     old_devise_session(mapping, controllers)
-    match 'sessions/is_expired', to: controllers[:sessions] << '#is_expired', via: :get
+    get 'sessions/is_expired' => controllers[:sessions] << '#is_expired'
   end
 end
