@@ -13,5 +13,6 @@ class Devise::Mapping
       "/#{@path}".squeeze("/")
     else
       "/#{@path_prefix}/#{@path}".squeeze("/")
+    end
   end
 end
