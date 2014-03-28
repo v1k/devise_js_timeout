@@ -3,10 +3,8 @@ class ActionDispatch::Routing::Mapper
 
   def devise_session(mapping, controllers)
     old_devise_session(mapping, controllers)
-    logger = Logger.new(STDOUT)
-    logger.debug mapping.path_names[:sign_in]
     resource :session, only: [], controller: controllers[:sessions], path: "" do
-      get :is_expired, path: '/is_expired'
+      get :is_expired, path: 'is_expired'
     end
   end
 end
