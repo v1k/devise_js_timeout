@@ -1,3 +1,3 @@
-# Rails.application.routes.draw do
-#   match '/session/is_expired', to: ':controller/session/is_expired'
-# end
+Rails.application.routes.draw do
+  match '/session/is_expired', to: ActionDispatch::Routing::Mapper.session_controller << '#is_expired'
+end
