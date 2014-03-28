@@ -8,14 +8,13 @@ class ActionDispatch::Routing::Mapper
 end
 
 class Devise::Mapping
-  def fullpath
+  alias_method :old_initialize, :initialize
+  def initialize(name, options)
+    old_initialize(name, options)
     logger = Logger.new(STDOUT)
+    logger.debug name
+    logger.debug @scoped_path
     logger.debug @path
-    logger.debug @path_prefix
-    if(@path == 'sessions/is_expired')
-      "/#{@path}".squeeze("/")
-    else
-      "/#{@path_prefix}/#{@path}".squeeze("/")
-    end
+    logger.debug options[:path_names]
   end
 end
