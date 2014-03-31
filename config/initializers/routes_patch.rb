@@ -26,8 +26,10 @@ module Devise
     alias_method :odl_add_mapping, :add_mapping
     def add_mapping(resource, options)
       odl_add_mapping(resource, options)
+      mapping = odl_add_mapping(resource, options)
       logger = Logger.new(STDOUT)
       logger.debug mapping
+      mapping
     end
   end
 end
