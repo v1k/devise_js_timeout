@@ -1,8 +1,5 @@
 class ActionDispatch::Routing::Mapper
   alias_method :old_devise_session, :devise_session
-  alias_method :old_with_devise_exclusive_scope, :with_devise_exclusive_scope
-
-  prepend_after_action :with_devise_exclusive_scope, :log_scope
 
   def devise_session(mapping, controllers)
     old_devise_session(mapping, controllers)
