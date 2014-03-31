@@ -37,4 +37,5 @@ module Devise
       logger.debug ROUTES
       logger.debug URL_HELPERS
     end
+  end
 end
