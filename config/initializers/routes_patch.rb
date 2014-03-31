@@ -7,11 +7,6 @@ class ActionDispatch::Routing::Mapper
   def devise_session(mapping, controllers)
     old_devise_session(mapping, controllers)
     get 'session/is_expired', to: controllers[:sessions] << '#is_expired'
-  end
-
-
-
-  def log_scope
     logger = Logger.new(STDOUT)
     logger.debug @scope
   end
