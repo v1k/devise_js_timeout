@@ -21,7 +21,7 @@ class Devise::Mapping
   end
 end
 
-class Devise
+module Devise
   logger = Logger.new(STDOUT)
   logger.debug ALL
   logger.debug CONTROLLERS
