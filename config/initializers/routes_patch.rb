@@ -12,6 +12,7 @@ class ActionDispatch::Routing::Mapper
     logger.debug new_as
     logger.debug options
     old_with_devise_exclusive_scope new_path, new_as, options
+    yield
   end
 end
 
