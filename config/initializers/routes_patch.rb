@@ -22,16 +22,11 @@ class Devise::Mapping
 end
 
 module Devise
-  logger = Logger.new(STDOUT)
-  logger.debug ALL
-  logger.debug CONTROLLERS
-  logger.debug ROUTES
-  logger.debug URL_HELPERS
-
   class << self
     alias_method :odl_add_mapping, :add_mapping
     def add_mapping(resource, options)
       odl_add_mapping(resource, options)
+      logger = Logger.new(STDOUT)
       logger.debug mapping
     end
   end
