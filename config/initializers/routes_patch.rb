@@ -27,4 +27,14 @@ module Devise
   logger.debug CONTROLLERS
   logger.debug ROUTES
   logger.debug URL_HELPERS
+
+  class << self
+    alias_method :odl_add_module, :add_module
+    def add_module(module_name, options = {})
+      odl_add_module(module_name, options)
+      logger.debug ALL
+      logger.debug CONTROLLERS
+      logger.debug ROUTES
+      logger.debug URL_HELPERS
+    end
 end
