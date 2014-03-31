@@ -20,3 +20,10 @@ class Devise::Mapping
     logger.debug @used_routes
   end
 end
+
+class Devise
+  logger = Logger.new(STDOUT)
+  logger.debug ALL
+  logger.debug CONTROLLERS
+  logger.debug ROUTES
+end
