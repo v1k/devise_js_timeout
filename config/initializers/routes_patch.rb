@@ -26,4 +26,5 @@ module Devise
   logger.debug ALL
   logger.debug CONTROLLERS
   logger.debug ROUTES
+  logger.debug URL_HELPERS
 end
