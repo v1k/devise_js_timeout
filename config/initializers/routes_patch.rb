@@ -3,7 +3,9 @@ class ActionDispatch::Routing::Mapper
 
   def devise_session(mapping, controllers)
     old_devise_session(mapping, controllers)
-    get 'session/is_expired', to: controllers[:sessions] << '#is_expired'
+    resource :session, only: [], controller: controllers[:sessions], path: "" do
+      get :is_expired, path: 'session/is_expired'
+    end
   end
 
   def with_devise_exclusive_scope(new_path, new_as, options)
