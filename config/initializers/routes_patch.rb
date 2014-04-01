@@ -4,8 +4,25 @@ class ActionDispatch::Routing::Mapper
   def devise_session(mapping, controllers)
     old_devise_session(mapping, controllers)
     get 'session/is_expired', to: controllers[:sessions] << '#is_expired'
+  end
+
+  def with_devise_exclusive_scope(new_path, new_as, options)
+    
     logger = Logger.new(STDOUT)
-    logger.debug @scope
+    logger.debug new_path
+    logger.debug new_as
+    logger.debug options
+
+    old = {}
+    SEVISE_SCOPE_KEYS.each {|k| old[k] = @scope[k]}
+
+    new = { as: new_as, path: new_path, module: nil }
+    new.merge!(options.slice(:constraints, :defaults, :options))
+    
+    @scope.merge!(new)
+    yield
+  ensure
+    @scope.merge!(old)
   end
 end
 
