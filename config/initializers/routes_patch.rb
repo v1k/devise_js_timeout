@@ -14,7 +14,7 @@ class ActionDispatch::Routing::Mapper
     logger.debug options
 
     old = {}
-    SEVISE_SCOPE_KEYS.each {|k| old[k] = @scope[k]}
+    DEVISE_SCOPE_KEYS.each {|k| old[k] = @scope[k]}
 
     new = { as: new_as, path: new_path, module: nil }
     new.merge!(options.slice(:constraints, :defaults, :options))
