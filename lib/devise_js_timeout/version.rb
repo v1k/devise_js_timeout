@@ -1,3 +1,3 @@
 module DeviseJsTimeout
-  VERSION = '0.2.72'
+  VERSION = '0.2.18'
 end

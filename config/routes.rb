@@ -1,3 +1,5 @@
-# Rails.application.routes.draw do
-#   match '/session/is_expired', to: ActionDispatch::Routing::Mapper.get_session_controller << '#is_expired'
-# end
+Rails.application.routes.draw do
+  as :user do
+    get 'session/is_expired', to: 'devise/sessions#is_expired'
+  end
+end
